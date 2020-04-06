@@ -16,7 +16,11 @@ def game_hash
           :assists => 12,
           :steals => 3,
           :blocks => 1,
+<<<<<<< HEAD
           :slam_dunks => 1
+=======
+          :slam_dumks => 1
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
         },
         {
           :player_name => "Reggie Evans",
@@ -27,7 +31,11 @@ def game_hash
           :assists => 12,
           :steals => 12,
           :blocks => 12,
+<<<<<<< HEAD
           :slam_dunks => 7
+=======
+          :slam_dumks => 7
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
         },
         {
           :player_name => "Brook Lopez",
@@ -38,7 +46,11 @@ def game_hash
           :assists => 10,
           :steals => 3,
           :blocks => 1,
+<<<<<<< HEAD
           :slam_dunks => 15
+=======
+          :slam_dumks => 15
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
         },
         {
           :player_name => "Mason Plumlee",
@@ -49,7 +61,11 @@ def game_hash
           :assists => 6,
           :steals => 3,
           :blocks => 8,
+<<<<<<< HEAD
           :slam_dunks => 5
+=======
+          :slam_dumks => 3
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
         },
         {
           :player_name => "Jason Terry",
@@ -60,7 +76,11 @@ def game_hash
           :assists => 2,
           :steals => 4,
           :blocks => 11,
+<<<<<<< HEAD
           :slam_dunks => 1
+=======
+          :slam_dumks => 1
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
         }
       ]
     },
@@ -78,7 +98,11 @@ def game_hash
           :assists => 1,
           :steals => 2,
           :blocks => 7,
+<<<<<<< HEAD
           :slam_dunks => 2
+=======
+          :slam_dumks => 2
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
         },
         {
           :player_name => "Bismack Biyombo",
@@ -89,7 +113,11 @@ def game_hash
           :assists => 7,
           :steals => 22,
           :blocks => 15,
+<<<<<<< HEAD
           :slam_dunks => 10
+=======
+          :slam_dumks => 10
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
         },
         {
           :player_name => "DeSagna Diop",
@@ -100,7 +128,11 @@ def game_hash
           :assists => 12,
           :steals => 4,
           :blocks => 5,
+<<<<<<< HEAD
           :slam_dunks => 5
+=======
+          :slam_dumks => 5
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
         },
         {
           :player_name => "Ben Gordon",
@@ -111,7 +143,11 @@ def game_hash
           :assists => 2,
           :steals => 1,
           :blocks => 1,
+<<<<<<< HEAD
           :slam_dunks => 0
+=======
+          :slam_dumks => 0
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
         },
         {
           :player_name => "Kemba Walker",
@@ -122,7 +158,11 @@ def game_hash
           :assists => 12,
           :steals => 7,
           :blocks => 5,
+<<<<<<< HEAD
           :slam_dunks => 12
+=======
+          :slam_dumks => 12
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
         }
       ]
     }
@@ -145,6 +185,7 @@ def num_points_scored(player_name)
     end
   end
 end
+<<<<<<< HEAD
 
 
 
@@ -243,8 +284,85 @@ def big_shoe_rebounds
 end
 
 
+=======
+>>>>>>> f68ecc1fbf5ed231b7a0f7eb1f184945dcd3ed13
+
+
+
+def shoe_size(player_name)
+  game_hash.each do |place, team|
+    team.each do |attribute, data|
+      if attribute == :players
+        data.each do |player|
+          if player[:player_name] == player_name
+            return player[:shoe]
+          end
+        end
+      end
+    end
+  end
+end
 
 
 
 
+def team_colors(team_name)
+  game_hash.each do |place, team|
+    team.each do |attribute, data|
+      if team[:team_name] == team_name
+        return team[:colors]
+      end
+    end
+  end
+end
 
+
+
+def team_names
+  array_of_teams = []
+  
+  game_hash.each do |place, team|
+    array_of_teams << team[:team_name]
+  end
+  array_of_teams
+end
+
+
+
+def player_numbers(team_name)
+  num_array = []
+  
+  game_hash.each do |place, team|
+    if team[:team_name] == team_name
+      team.each do |attribute, data|
+        if attribute == :players
+          data.each do |player|
+            num_array << player[:number]
+          end
+        end
+      end
+    end
+  end
+  num_array
+end
+
+
+
+def player_stats(player_name)
+   new_hash = {}
+   
+   game_hash.each do |place, team|
+      team.each do |attributes, data|
+         if attributes == :players
+            data.each do |player|
+               if player[:player_name] == players_name
+                  new_hash = player.delete_if do |k, v|
+                     k == :player_name 
+                  end
+               end
+            end
+         end
+      end
+   end
+   new_hash
+end
